@@ -1,14 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import useChat from "./useSocket";
 
 function App() {
+  const { flights, sendMessage } = useChat(); 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Whats up man.
         </p>
+        <ol className="messages-list">
+          {flights.map((flight, i) => (
+            <li
+              key={i}
+            >
+              {flight.code}; {flight.airline}; 
+            </li>
+          ))}
+        </ol>
         <a
           className="App-link"
           href="https://reactjs.org"
