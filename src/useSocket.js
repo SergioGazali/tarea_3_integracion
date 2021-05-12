@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 
 // CODIGO MODIFICADO, OBTENIDO DE: https://medium.com/swlh/build-a-real-time-chat-app-with-react-hooks-and-socket-io-4859c9afecb0
@@ -7,10 +7,15 @@ const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; // Name of the event
 const SOCKET_SERVER_URL = "wss://tarea-3-websocket.2021-1.tallerdeintegracion.cl";//flights
 
 const useChat = () => {
+  function reducer(state, action) {
+    console.log('REDUCER ', {...state, [action.payload.code]:[action.payload.position]})
+    return {...state, [action.payload.code]:[action.payload.position]}
+  }
   //const [messages, setMessages] = useState([]); // Sent and received messages
   const [flights, setFlights] = useState([]);
   const socketRef = useRef();
-
+  const [positions, setPositions] = useState({"no_fly": [2.2, 4.3]});
+  const [state, dispatch] = useReducer(reducer, {"no_fly": [1.1, 2.2]}, )
   useEffect(() => {
     
     // Creates a WebSocket connection
@@ -34,7 +39,17 @@ const useChat = () => {
       setFlights(flights_list);
       console.log("FLIGHTS!!::\n", flights)
     });
-    
+    socketRef.current.on("POSITION", (flight)=>{
+      console.log('STATE: ', state);
+      const code = flight.code;
+      const position = flight.position;
+      console.log({...positions, [code]:position});
+      /* setPositions((flight) => {
+        return {...position, [flight.code]:flight.position}
+      }); */
+      dispatch({type:'FlightPosition', payload:flight})
+      console.log(positions)
+    });
     // Destroys the socket reference
     // when the connection is closed
     return () => {
@@ -51,7 +66,7 @@ const useChat = () => {
     });
   };
 
-  return { flights, sendMessage };
+  return { flights, positions, state, sendMessage };
 };
 
 export default useChat;

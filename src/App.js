@@ -3,7 +3,7 @@ import './App.css';
 import useChat from "./useSocket";
 
 function App() {
-  const { flights, sendMessage } = useChat(); 
+  const { flights, positions, state, sendMessage } = useChat(); 
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +16,7 @@ function App() {
             <li
               key={i}
             >
-              {flight.code}; {flight.airline}; 
+              {flight.code}; {flight.airline}; ({state[flight.code] && state[flight.code][0][0]}; {state[flight.code] && state[flight.code][0][1]})
             </li>
           ))}
         </ol>
