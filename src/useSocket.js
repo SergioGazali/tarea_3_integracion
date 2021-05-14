@@ -12,6 +12,7 @@ const useChat = () => {
     return {...state, [action.payload.code]:[action.payload.position]}
   }
   //const [messages, setMessages] = useState([]); // Sent and received messages
+  const [messages, setMessages] = useState([]);
   const [flights, setFlights] = useState([]);
   const socketRef = useRef();
   const [positions, setPositions] = useState({"no_fly": [2.2, 4.3]});
@@ -33,6 +34,9 @@ const useChat = () => {
       };
       setMessages((messages) => [...messages, incomingMessage]);
     }); */
+    socketRef.current.on("CHAT", (incomingMessage) => {
+      setMessages((messages) => [...messages, incomingMessage]);
+    });
 
     socketRef.current.on("FLIGHTS", (flights_list)=>{
       console.log(flights_list);
@@ -59,14 +63,15 @@ const useChat = () => {
 
   // Sends a message to the server that
   // forwards it to all users in the same room
-  const sendMessage = (messageBody) => {
-    socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
-      body: messageBody,
-      senderId: socketRef.current.id,
+  const sendMessage = (messageBody, name) => {
+    socketRef.current.emit("CHAT", {
+      name: name,
+      message: messageBody,
+      /* senderId: socketRef.current.id, */
     });
   };
 
-  return { flights, positions, state, sendMessage };
+  return { flights, positions, state, messages, sendMessage };
 };
 
 export default useChat;

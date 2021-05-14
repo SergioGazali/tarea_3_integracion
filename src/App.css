@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.messages-list{
+  background-color: whitesmoke;
+}
+
+.messages-list li {
+  color: black;
+}
+ul li {
+  list-style-type: none;
+}
+.mine {
+  color: navy;
+  font: bold;
+}
