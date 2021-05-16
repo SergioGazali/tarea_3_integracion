@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/tarea_3_integracion/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/tarea_3_integracion/static/js/main.834fd7aa.chunk.js",
-    "main.js.map": "/tarea_3_integracion/static/js/main.834fd7aa.chunk.js.map",
-    "runtime-main.js": "/tarea_3_integracion/static/js/runtime-main.1bae51fa.js",
-    "runtime-main.js.map": "/tarea_3_integracion/static/js/runtime-main.1bae51fa.js.map",
-    "static/js/2.c356739c.chunk.js": "/tarea_3_integracion/static/js/2.c356739c.chunk.js",
-    "static/js/2.c356739c.chunk.js.map": "/tarea_3_integracion/static/js/2.c356739c.chunk.js.map",
-    "static/js/3.d55c4b1f.chunk.js": "/tarea_3_integracion/static/js/3.d55c4b1f.chunk.js",
-    "static/js/3.d55c4b1f.chunk.js.map": "/tarea_3_integracion/static/js/3.d55c4b1f.chunk.js.map",
+    "main.css": "/tarea_3_integracion/static/css/main.dc3f26f8.chunk.css",
+    "main.js": "/tarea_3_integracion/static/js/main.c2780536.chunk.js",
+    "main.js.map": "/tarea_3_integracion/static/js/main.c2780536.chunk.js.map",
+    "runtime-main.js": "/tarea_3_integracion/static/js/runtime-main.4087cf44.js",
+    "runtime-main.js.map": "/tarea_3_integracion/static/js/runtime-main.4087cf44.js.map",
+    "static/js/2.e1ca1dfd.chunk.js": "/tarea_3_integracion/static/js/2.e1ca1dfd.chunk.js",
+    "static/js/2.e1ca1dfd.chunk.js.map": "/tarea_3_integracion/static/js/2.e1ca1dfd.chunk.js.map",
+    "static/js/3.58185d7b.chunk.js": "/tarea_3_integracion/static/js/3.58185d7b.chunk.js",
+    "static/js/3.58185d7b.chunk.js.map": "/tarea_3_integracion/static/js/3.58185d7b.chunk.js.map",
     "index.html": "/tarea_3_integracion/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/tarea_3_integracion/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.c356739c.chunk.js.LICENSE.txt": "/tarea_3_integracion/static/js/2.c356739c.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/tarea_3_integracion/static/media/logo.6ce24c58.svg"
+    "static/css/main.dc3f26f8.chunk.css.map": "/tarea_3_integracion/static/css/main.dc3f26f8.chunk.css.map",
+    "static/js/2.e1ca1dfd.chunk.js.LICENSE.txt": "/tarea_3_integracion/static/js/2.e1ca1dfd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1bae51fa.js",
-    "static/js/2.c356739c.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.834fd7aa.chunk.js"
+    "static/js/runtime-main.4087cf44.js",
+    "static/js/2.e1ca1dfd.chunk.js",
+    "static/css/main.dc3f26f8.chunk.css",
+    "static/js/main.c2780536.chunk.js"
   ]
 }
