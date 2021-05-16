@@ -15,7 +15,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,8 +36,15 @@
   }
 }
 
-.messages-list{
+/* .messages-list{
   background-color: whitesmoke;
+} */
+.chatListDiv {
+  background-color: whitesmoke;
+  height: 400px;
+  max-height: 400px;
+  overflow: scroll;
+  border-radius: 5px;
 }
 
 .messages-list li {
@@ -50,4 +56,59 @@ ul li {
 .mine {
   color: navy;
   font: bold;
+}
+.mainDiv {
+  display: flex;
+  flex-direction: row;
+}
+.leftDiv {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.chatDiv {
+  width: 29%;
+}
+
+#chatTitle {
+  margin: 0%;
+  padding: 0%;
+}
+#infoDiv{
+  background-color: indigo;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.leaflet-container {
+  width: 100%;
+  height: 50vh;
+}
+
+.messageName {
+  font: bold;
+  color: darkslategrey;
+  font-size: medium;
+}
+
+.messageDate {
+  font-size: small;
+  color: darkgray;
+}
+
+.messageMessage {
+  font-size: small;
+  color: black;
+}
+li p {
+  margin: 0%;
+  padding: 0%;
+}
+
+.flightCard {
+  border-radius: 5px;
+  background-color: indianred;
+  max-width: 200px;
+  margin: 3px 1.5px 3px 1.5px;
 }

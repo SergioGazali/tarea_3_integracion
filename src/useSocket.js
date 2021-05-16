@@ -8,8 +8,11 @@ const SOCKET_SERVER_URL = "wss://tarea-3-websocket.2021-1.tallerdeintegracion.cl
 
 const useChat = () => {
   function reducer(state, action) {
-    console.log('REDUCER ', {...state, [action.payload.code]:[action.payload.position]})
-    return {...state, [action.payload.code]:[action.payload.position]}
+    if (Object.keys(state).includes(action.payload.code)) {
+      return {...state, [action.payload.code]:[...state[action.payload.code], action.payload.position]}
+    } else {
+      return {...state, [action.payload.code]:[action.payload.position]}
+    }
   }
   //const [messages, setMessages] = useState([]); // Sent and received messages
   const [messages, setMessages] = useState([]);
@@ -26,33 +29,21 @@ const useChat = () => {
 
     socketRef.current.emit("FLIGHTS");
     
-    // Listens for incoming messages
-    /* socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, (message) => {
-      const incomingMessage = {
-        ...message,
-        ownedByCurrentUser: message.senderId === socketRef.current.id,
-      };
-      setMessages((messages) => [...messages, incomingMessage]);
-    }); */
     socketRef.current.on("CHAT", (incomingMessage) => {
-      setMessages((messages) => [...messages, incomingMessage]);
+      setMessages((messages) => [incomingMessage, ...messages]);
     });
 
     socketRef.current.on("FLIGHTS", (flights_list)=>{
-      console.log(flights_list);
       setFlights(flights_list);
-      console.log("FLIGHTS!!::\n", flights)
+      console.log("FLIGHTS!!::\n", flights_list)
     });
     socketRef.current.on("POSITION", (flight)=>{
-      console.log('STATE: ', state);
       const code = flight.code;
       const position = flight.position;
-      console.log({...positions, [code]:position});
       /* setPositions((flight) => {
         return {...position, [flight.code]:flight.position}
       }); */
       dispatch({type:'FlightPosition', payload:flight})
-      console.log(positions)
     });
     // Destroys the socket reference
     // when the connection is closed
