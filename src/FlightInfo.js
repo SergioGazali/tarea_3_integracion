@@ -11,7 +11,7 @@ function FlightInfo (props) {
       <p>Destination: ({destination[0]}; {destination[1]})</p>
       <p>Plane: {plane}</p>
       <p>Seats: {seats}</p>
-      <p>Passengers: {passengers.map((passenger)=>(<>{passenger.name} | </>))}</p>
+      <p>Passengers: {passengers.map((passenger)=>(<>{passenger.name} ({passenger.age})| </>))}</p>
     </div>
   )
 }
